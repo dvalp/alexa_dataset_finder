@@ -1,7 +1,17 @@
 {
   "intents": [
     {
-      "intent": "GetNewDatasetIntent"
+      "intent": "DatasetIntent",
+      "slots": [
+        {
+          "name": "dataset",
+          "type": "LIST_OF_MAIN_CATEGORIES"
+        },
+        {
+          "name": "place",
+          "type": "AMAZON.US_CITY"
+        }
+      ]
     },
     {
       "intent": "AMAZON.HelpIntent"

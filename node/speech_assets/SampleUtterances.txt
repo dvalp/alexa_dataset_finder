@@ -1,0 +1,16 @@
+DatasetIntent give me a dataset on {dataset} in {place}
+DatasetIntent give me a dataset on {dataset} at {place}
+DatasetIntent get me a dataset on {dataset} in {place}
+DatasetIntent get me a dataset on {dataset} at {place}
+DatasetIntent get me data on {dataset} in {place}
+DatasetIntent get me data on {dataset} at {place}
+DatasetIntent give me data on {dataset} in {place}
+DatasetIntent give me data on {dataset} at {place}
+DatasetIntent give me info on {dataset} in {place}
+DatasetIntent give me info on {dataset} at {place}
+DatasetIntent go get info on {dataset} in {place}
+DatasetIntent go get info on {dataset} at {place}
+DatasetIntent go get me a dataset on {dataset} in {place}
+DatasetIntent go get me a dataset on {dataset} at {place}
+DatasetIntent get me some data on {dataset} in {place}
+DatasetIntent get me some data on {dataset} at {place}
