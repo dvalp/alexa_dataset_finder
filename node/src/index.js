@@ -4,7 +4,7 @@ var Alexa = require('alexa-sdk');
 var APP_ID = undefined;
 var SKILL_NAME = 'data guru';
 var categories = require('./categories');
-var $ = require('./jquery-2.2.4.min.js');
+var $ = require('./jquery-2.2.4.min');
 var endJson, speechOutput, repromptSpeech;
 
 exports.handler = function(event, context, callback) {
@@ -15,14 +15,14 @@ exports.handler = function(event, context, callback) {
 };
 
 var handlers = {
-    'NewSession': function () {
+    'LaunchRequest': function () {
         this.attributes['speechOutput'] = 'Welcome to ' + SKILL_NAME + '. You can request a dataset by saying something like, give me a dataset on' +
             ' education in toronto ... Now, what can I help you with.';
         this.attributes['repromptSpeech'] = 'For instructions on what you can say, please say help me.';
         this.emit(':ask', this.attributes['speechOutput'], this.attributes['repromptSpeech'])
     },
     'DatasetIntent': function () {
-      var category = this.event.request.intent.slots.category;
+      var category = this.event.request.intent.slots.dataset;
       var place = this.event.request.intent.slots.place;
       var categoryName, placeName;
       var randomVal = Math.floor(Math.random() * Object.keys(categories).length);
@@ -56,12 +56,13 @@ var handlers = {
           requestData: reqData
         };
 
-        $.ajax({
-          url: 'https://2mui4yrf7i.execute-api.us-east-1.amazonaws.com/prod/mytestresource',
-          data: jsonBody,
-          success: nextStep,
-          dataType: 'json'
-        });
+        nextStep(jsonBody);
+        // $.ajax({
+        //   url: 'https://2mui4yrf7i.execute-api.us-east-1.amazonaws.com/prod/mytestresource',
+        //   data: JSON.stringify(jsonBody),
+        //   success: nextStep,
+        //   dataType: 'json'
+        // });
       }
 
       function nextStep (data) {
